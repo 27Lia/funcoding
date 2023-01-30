@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.poster {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    border-radius: 10px;
+    background-color: rgb(133, 166, 220);
+    animation: poster-ani 1.6s infinite linear alternate;
+    transform-style: preserve-3d;
+}   
+
+.poster-title {
+    padding: 0.5em;
+    font-size: 2.5rem;
+    font-weight: normal;
+    text-align: center;
+    letter-spacing: 2px;
+    font-family: 'SDSwagger';
+    color: rgb(43, 40, 40);
+    transform: translatez(40px);
+}
+
+img { 
+    max-width: 100%;
+    height: auto;
+}
+
+.world {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    perspective: 1000px;
+}
+
+@keyframes poster-ani {
+    0% {
+        transform: rotateY(-20deg);
+    }
+    100% {
+        transform: rotateY(20deg);
+    }
+}
+
+.diving {
+    position: absolute;
+    width: 40%;
+}
+
+.diving:nth-of-type(1) {
+    width: 90%;
+    left: 40%;
+    bottom: 10%;
+    transform: translatez(70px);
+}
+
+.diving:nth-of-type(2) {
+    width: 80%;
+    right: 35%;
+    bottom: 20%;
+    transform: translatez(60px);
+
+}
+
+.diving:nth-of-type(3) {
+    width: 90%;
+    top: 45%;
+    transform: translatez(55px);
+}
+
+
