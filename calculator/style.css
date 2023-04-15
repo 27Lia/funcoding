@@ -19,7 +19,7 @@ body {
     border-radius: 10px;
 }
 
-.forms {
+.form {
     display: grid;
     grid-template-columns: repeat(4,65px);
     grid-auto-rows: 65px;
