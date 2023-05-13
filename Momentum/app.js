@@ -1,10 +1,21 @@
+const loginForm = document.querySelector(".login-form"); //loginForm으로부터 시작되는 새로고침되니까 login-form을 선택해줌
 const loginInput = document.querySelector(".login-form input");
-const loginButton = document.querySelector(".login-form button");
+const link = document.querySelector("a");
 
-function loginBtnClick() {
-    console.dir(loginInput.value); // console.dir() 메서드를 사용하여 DOM 요소를 출력하면, 해당 요소의 속성들과 값을 확인
+function loginSubmit(event){
+    event.preventDefault(); // 이벤트 기본동작(새로고침)방지하기위해 호출
 }
 
-loginButton.addEventListener("click", loginBtnClick); // 이벤트 먼저 만들어주고 loginBtnClick함수 생성
-//이벤트를 등록할 요소.메서드("이벤트이름", 콜백함수(이벤트가 발생했을 때 실행할함수))
+function linkclick(event){
+    event.preventDefault(); // 이벤트 기본동작(링크클릭시 이동)방지하기위해 호출
+}
 
+loginForm.addEventListener('submit', loginSubmit) //loginform 기본동작은 submit
+link.addEventListener('click', linkclick) // 링크를 클릭했을 때 이벤트
+
+
+
+//.login-form은 선택하는 이유는 새로고침은 login-form으로 부터 시작되니까~
+//form의 기본동작은 Submit다.
+//
+//  event.preventDefault() 이벤트 기본동작을 방지하기 위해 쓰임.
