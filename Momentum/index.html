@@ -8,14 +8,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form id="login-form"> <!--input 유효성 검사를위해서는 input이 form안에 존재해야한다.-->
-    <input 
-    required maxlength="15" 
-    type="text"
-    placeholder="What is your name?">
-    <input type="submit" value="Log In">
+     <form class="hidden" id="login-form"> 
+        <input required maxlength="15" type="text" placeholder="What is your name?"> <!--input 유효성 검사를위해서는 input이 form안에 존재해야한다-->
+        <input type="submit" value="Log In">
     </form>
-    <h1 id="greeting" class="hidden "></h1>
+    <h1 id="greeting" class="hidden"></h1>
    <script src="app.js"></script>
 </body>
-</html>
+
+
