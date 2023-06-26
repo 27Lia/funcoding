@@ -12,4 +12,5 @@ const clock = document.querySelector("h2#clock");
  setInterval(getClock,1000);    
 
  // .padStart(몇자리로만들지, 어떤값을추가할지)메서드활용
- 
+
+fetch('')
