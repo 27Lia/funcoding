@@ -1,3 +1,8 @@
 .hidden {
     display:none;
 }
+
+#quotes {
+    font-size: 32px;
+  }
+
