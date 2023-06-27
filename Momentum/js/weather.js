@@ -3,7 +3,6 @@ const weather = document.querySelector("#weather span:first-child");
 // city 요소를 선택하여 city 변수에 할당
 const city = document.querySelector("#weather span:last-child");
 // OpenWeatherMap API 키를 상수로 선언
-const API_KEY = "294d65c2eb13f1961d03f39fc53fb202";
 
 // 현재 위치 정보를 가져올 때 호출되는 콜백 함수
 function onGeoOk(position) {
@@ -11,7 +10,7 @@ function onGeoOk(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
   // OpenWeatherMap API를 사용하여 날씨 정보를 가져올 URL 생성
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=294d65c2eb13f1961d03f39fc53fb202&units=metric`;
   // 생성된 URL로 API 요청을 보내고 응답 데이터를 처리
   fetch(url)
     .then((response) => response.json())
