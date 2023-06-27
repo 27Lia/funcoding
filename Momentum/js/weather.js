@@ -1,4 +1,3 @@
-// 294d65c2eb13f1961d03f39fc53fb202
 // weather 요소를 선택하여 weather 변수에 할당
 const weather = document.querySelector("#weather span:first-child");
 // city 요소를 선택하여 city 변수에 할당
@@ -23,7 +22,6 @@ function onGeoOk(position) {
       weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
     });
 }
-
 // 현재 위치 정보를 가져오지 못했을 때 호출되는 콜백 함수
 function onGeoError() {
   // 위치 정보를 가져올 수 없을 때 알림 메시지 출력
