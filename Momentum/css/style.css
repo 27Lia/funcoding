@@ -1,8 +1,125 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    position: relative;
+}
+:root {
+    --primary: #FFE928;
+    --bg: #232323
+}
+
+html[data-weather=rain]:root {
+    --primary: #92C4FF;
+    --bg: #000
+}
+
+html[data-weather=snow]:root {
+    --primary: #EEf6Eb;
+    --bg: #3f3b3b
+}
+
+html[data-weather=rain]:root {
+    --primary: #000000;
+    --bg: #FF72AD
+}
+
+li {
+    list-style: none;
+}
+
 .hidden {
-    display:none;
+    display: none;
 }
 
 #quotes {
     font-size: 32px;
+}
+
+/* 흰색 메인화면 */
+section {
+    width: 80%;
+    height: 80%;
+    background-color: #EEf6Eb;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container {
+    display: flex; /* 컨테이너를 플렉스 박스로 설정 */
+    flex-direction: row;
+    justify-content:space-around
   }
 
+/* rain 배경화면 */
+.rains {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Adjust the width as needed */
+    height: 100vh; /* Adjust the height as needed */
+    background-size: cover; /* Adjust the background-size property as needed */
+    z-index: -2; /* Adjust the z-index as needed */
+
+  }
+
+/* 움직이는 비 */
+  .raindrops {
+    animation: raindrops 4s infinite;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    background-size: 20%; 
+    z-index: -1; 
+  }
+
+/* 
+  @keyframes raindrops {
+    0% {
+        transform: translate(40%, -30%);
+        /* opacity: 0; */
+    }
+    50% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-10%, 10%);
+        opacity: 0;
+    }
+  } 
+   */
+
+
+  /* 스탬프 */
+/* .footprints{
+    z-index: -999;
+}
+.rain {
+    cursor: pointer;
+}
+
+.rain .footprints {
+    position: fixed;
+    color: var(--primary);
+    font-family: "Noto Sans SC"
+}
+
+.rain .footprints div {
+    position: fixed;
+    font-size: 10rem;
+    text-shadow: 2px 4px 6px rgba(255,255,255,.5),-4px -4px 8px rgba(214,214,214,.8);
+} */

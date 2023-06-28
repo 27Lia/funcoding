@@ -17,3 +17,4 @@
 // const jsonString = JSON.stringify(obj); // 출력값 문자열 {"name":"John","age":30,"city":"New York"}
 // JSON.parse(jsonString); // 출력값 객체 {name: 'John', age: 30, city: 'New York'}
 
+API로 받아온 날씨 데이터가 a인 경우, 
