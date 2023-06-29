@@ -1,9 +1,25 @@
+//todo.js
 const toDoForm = document.getElementById("todo-form");
 const toDoList = document.getElementById("todo-list");
 const toDoInput = toDoForm.querySelector("input"); // loginForm 안에서 input 요소를 찾아 loginInput 변수에 할당
+const modalLink = document.getElementById('modal-link');
+const closeButton = document.getElementById('close-button');
 
-let toDos = []; //newtodo가 입력된 후 그 이후 값도 업데이트가 가능하도록 let사용
 
+
+// TodoModal
+modalLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    modal.classList.remove('hidden'); // 모달 표시
+});
+
+function closeModal() {
+    modal.classList.add('hidden');
+}
+closeButton.addEventListener('click', closeModal);
+
+//newtodo가 입력된 후 그 이후 값도 업데이트가 가능하도록 let사용
+let toDos = []; 
 // toDos array를 localStorage에 넣는것임. 
 function saveTodos() {
     localStorage.setItem("todos",JSON.stringify(toDos));

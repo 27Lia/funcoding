@@ -17,4 +17,10 @@
 // const jsonString = JSON.stringify(obj); // 출력값 문자열 {"name":"John","age":30,"city":"New York"}
 // JSON.parse(jsonString); // 출력값 객체 {name: 'John', age: 30, city: 'New York'}
 
-API로 받아온 날씨 데이터가 a인 경우, 
+css구현시
+1. 검색창 안에 search 아이콘을 넣는게 힘들었다.
+해결법은 인풋창위에 div박스를 씌우고 그안에 인풋과 아이콘을 넣는 방법이 있었다.!
+
+2. radius설정으로 원의 몇퍼센트만 색을 칠할건지 정할수있는걸 알게됐다. 
+
+

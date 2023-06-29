@@ -3,123 +3,116 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    :focus { outline: none !important; } /* 모든 항목 focus시 아웃라인 제거 */
 }
 
 body {
     height: 100vh;
     position: relative;
 }
-:root {
-    --primary: #FFE928;
-    --bg: #232323
-}
-
-html[data-weather=rain]:root {
-    --primary: #92C4FF;
-    --bg: #000
-}
-
-html[data-weather=snow]:root {
-    --primary: #EEf6Eb;
-    --bg: #3f3b3b
-}
-
-html[data-weather=rain]:root {
-    --primary: #000000;
-    --bg: #FF72AD
-}
-
-li {
-    list-style: none;
-}
 
 .hidden {
     display: none;
 }
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    height: 200px;
+}
+
+#login-form {
+    border: 1px solid #93a5f4;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    width: 200px;
+    height: 30px;
+    background: linear-gradient(to left, #93a5f4 20%, transparent 20%);
+}
+
+input {
+    border-radius: 100px;
+    width: 151px;
+    height: 12px;
+    padding: 0px 20px;
+    border: none;   
+    background: none;
+
+}
+.searchbtn{
+    background: none;
+    border: 0;
+    margin: 0 0 0 20px;
+    color: #fff;
+
+
+}
+
+#modal-link {
+    background-color: #93a5f4;
+    border-radius: 100px;
+    border: 1px solid #93a5f4;
+    width: 200px;
+    height: 30px;
+    color: white;
+}
+
 
 #quotes {
     font-size: 32px;
 }
-
-/* 흰색 메인화면 */
-section {
-    width: 80%;
-    height: 80%;
-    background-color: #EEf6Eb;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+#modal {
+    background-color: #5ff687;
+    width: 300px;
+    height: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
 }
 
-.container {
-    display: flex; /* 컨테이너를 플렉스 박스로 설정 */
-    flex-direction: row;
-    justify-content:space-around
-  }
-
-/* rain 배경화면 */
-.rains {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw; /* Adjust the width as needed */
-    height: 100vh; /* Adjust the height as needed */
-    background-size: cover; /* Adjust the background-size property as needed */
-    z-index: -2; /* Adjust the z-index as needed */
-
-  }
-
-/* 움직이는 비 */
-  .raindrops {
-    animation: raindrops 4s infinite;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw; 
-    height: 100vh; 
-    background-size: 20%; 
-    z-index: -1; 
-  }
-
-/* 
-  @keyframes raindrops {
-    0% {
-        transform: translate(40%, -30%);
-        /* opacity: 0; */
-    }
-    50% {
-        transform: translate(0, 0);
-        opacity: 1;
-    }
-    100% {
-        transform: translate(-10%, 10%);
-        opacity: 0;
-    }
-  } 
-   */
 
 
-  /* 스탬프 */
-/* .footprints{
-    z-index: -999;
+/* sunny 배경화면 */
+.sunnybackground {
+    background-image: url(/img/sunny.png);
+        position: absolute;
+        width: 934px;
+        height: 934px;
+        position: absolute;
+        background-size: contain; 
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -25%);
 }
-.rain {
+
+/* 스탬프 */
+.footprints{
+    z-index: -2;
+}
+.snow {
     cursor: pointer;
 }
 
-.rain .footprints {
+.snow .footprints {
     position: fixed;
     color: var(--primary);
     font-family: "Noto Sans SC"
 }
 
-.rain .footprints div {
+.snow .footprints div {
     position: fixed;
     font-size: 10rem;
     text-shadow: 2px 4px 6px rgba(255,255,255,.5),-4px -4px 8px rgba(214,214,214,.8);
-} */
+}
