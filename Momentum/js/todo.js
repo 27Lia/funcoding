@@ -31,17 +31,39 @@ function deleteToDo(event){
     toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id)); //toDo는 parsedToDos 배열의 각각의 item들 즉, toDo.id는 각 아이템들의 id 😞어려워. 이해필요! 
     saveTodos(); // 업데이트 된 toDos 배열을 로컬 스토리지에 저장
 }
+function handleToDoCheck(event) {
+    const checkbox = event.target;
+    const li = checkbox.parentElement;
+  
+    if (checkbox.checked) {
+      li.classList.add("completed");
+    } else {
+      li.classList.remove("completed");
+    }
 
+  }
 function paintToDo(newToDo){
+    
+
     const li = document.createElement("li");
     li.id = newToDo.id; 
+
+    const checkbox = document.createElement("input");
+    checkbox.classList.add("todo-checkbox")
+    checkbox.type = "checkbox";
+    checkbox.addEventListener("change", handleToDoCheck);
+    li.appendChild(checkbox);
+
     const span = document.createElement("span");
     span.innerText = newToDo.text; 
-    const button = document.createElement("button");
-    button.innerText = "✔️";
-    button.addEventListener("click", deleteToDo)
     li.appendChild(span); // li자식으로 span을 넣어줌
-    li.appendChild(button);
+
+    const trashButton = document.createElement("button");
+    trashButton.innerText = "X";
+    trashButton.classList.add("trash")
+    trashButton.addEventListener("click", deleteToDo);
+    li.appendChild(trashButton);
+
     toDoList.appendChild(li);
 }
 

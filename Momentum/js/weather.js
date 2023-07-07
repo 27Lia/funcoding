@@ -1,41 +1,86 @@
-//weather.js
-import{ handleWeatherData } from "./rain.js"
-
-// weather 요소를 선택하여 weather 변수에 할당
-const weather = document.querySelector("#weather span:first-child");
-// city 요소를 선택하여 city 변수에 할당
-const city = document.querySelector("#weather span:last-child");
 
 
-// 현재 위치 정보를 가져올 때 호출되는 콜백 함수
-function onGeoOk(position) {
-  // 현재 위치의 위도와 경도 값을 변수에 할당
-  const lat = position.coords.latitude;
-  const lon = position.coords.longitude;
-  // OpenWeatherMap API를 사용하여 날씨 정보를 가져올 URL 생성
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=294d65c2eb13f1961d03f39fc53fb202&units=metric`;
-  // 생성된 URL로 API 요청을 보내고 응답 데이터를 처리
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      // API 응답 데이터에서 도시 이름을 가져와 city 요소의 내용으로 설정
-      city.innerText = data.name;
-      // API 응답 데이터에서 날씨 정보와 온도를 가져와 weather 요소의 내용으로 설정
-      weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
-      handleWeatherData(data.weather[0].main); // 날씨 데이터를 처리하는 함수 호출
-    });
+//sunny
+  function createSunny() {
+    const sunnyEl = document.getElementById('weatherimg');
+    sunnyEl.classList.add("sunnybackground");
+
+   }
+//rain
+
+// 빗방울 생성 함수
+function createRaindrop() { 
+  const rainEl = document.getElementById('weatherimg');
+  rainEl.classList.add("rainbackground");
+
+  const raindrop = document.createElement('div');
+  raindrop.classList.add("raindrop");
+  rainEl.appendChild(raindrop);   // rainEl에 raindrop 요소 추가
+  raindrop.style.left = `${Math.random() * 100}%`;
+ // 물방울 요소의 왼쪽 위치를 랜덤한 퍼센트 값으로 설정 0%부터 100% 사이의 값
+  raindrop.style.animationDuration = `${Math.random() * 20 + 10}s`; // 물방울의 애니메이션 지속 시간을 랜덤한 값으로 설정 1초에서 10초 사이의 랜덤한 값 
 }
-// 현재 위치 정보를 가져오지 못했을 때 호출되는 콜백 함수
-function onGeoError() {
-  // 위치 정보를 가져올 수 없을 때 알림 메시지 출력
-  alert("Can't find you. No weather for you.");
-}
-// 현재 위치 정보를 요청하여 성공 또는 실패 시 콜백 함수 호출
-navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+
+//clouds
+  function createClouds() {
+    const CloudsEl = document.getElementById('weatherimg');
+    CloudsEl.classList.add("cloudsbackground");
+  }
+
+//snow
+  function createSnow() {
+    const SnowEl = document.getElementById('weatherimg');
+    SnowEl.classList.add("snowbackground");
+    // 스탬프              
+    const snow_init = () => {
+      document.addEventListener("click", (e) => {
+          const div = document.createElement("div")
+          div.innerText = "⛈";
+          div.style.fontSize = `${Math.random() * 8 + 2}rem`
+          div.style.top = `calc(${e.y}px - 0.5em)`
+          div.style.left = `calc(${e.x}px - 0.5em)`
+          document.querySelector(".snow").appendChild(div)          
+          document.querySelector(".snow .footprints").appendChild(div)
+      })
+    }
+    
+    snow_init();
+  }
+
+
+// 날씨 데이터를 처리하는 함수
+function handleWeatherData(weather) {
+    if ( weather === "Raiasn") {   //Rain 경우 
+      for (let i = 0; i < 30; i++) {
+        createRaindrop();
+      }
+    } 
+        else if (weather === "d") { //Clouds 경우
+          createClouds()
+          
+      } 
+        else if (weather === "a") { //Sunny 경우
+        // createSunny()
+        // createRaindrop()
+        // createClouds()
+        createSnow()
+
+      }
+        else { // Snow경우
+          // createSnow()
+         createSunny()
+        // createRaindrop()
+        // createClouds()
+
+      }}
+
+
+      export { handleWeatherData };
 
 
 
-// div를 여러개 선택하여 클래스명 동일하게 만들어줄수있음.
-// raindrop.querySelectorAll("div").forEach((div) => {
-//   div.classList.add("raining");
-// });
+
+  // function createSunny() {
+  //   const sunnyEl = document.getElementById('sunny');
+  //   sunnyEl.classList.add("sunnybackground");
+  // }
